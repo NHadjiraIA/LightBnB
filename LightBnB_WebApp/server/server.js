@@ -31,6 +31,14 @@ app.use('/users', userRouter);
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get("/test", (req, res) => {
+  database.getAllProperties({'city':'Sotboske','owner_id':1, 'minimum_rating':400, 'minimum_price_per_night':300,'maximum_price_per_night':900},10)
+  .then(result => {
+    console.log('the result ',result)
+    console.log('something will go here')
+    }).catch(err => console.log(err))
+  
+   
+  //console.log('this is the example test for reservation ',exampleReservation)
   res.send("🤗");
 });
 
